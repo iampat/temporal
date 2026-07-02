@@ -1,9 +1,12 @@
 name: Flaky Tests Report
 
 on:
-  schedule:
-    # Run on Wednesdays at noon Eastern time (5 PM UTC)
-    - cron: "0 17 * * 3"
+  # Scheduled run disabled: this fork lacks the TEMPORAL_CICD_APP_ID /
+  # TEMPORAL_CICD_PRIVATE_KEY secrets, so the "Generate token" step fails.
+  # Trigger manually via workflow_dispatch if the secrets are configured.
+  # schedule:
+  #   # Run on Wednesdays at noon Eastern time (5 PM UTC)
+  #   - cron: "0 17 * * 3"
   workflow_dispatch:
     inputs:
       days:
